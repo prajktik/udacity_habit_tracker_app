@@ -1,0 +1,10 @@
+<resources>
+	<string name="app_name">Habit Tracker</string>
+	
+	<string name="exercise">Exercise</string>
+	<string name="exercise_endurance">Endurance</string>
+	<string name="exercise_strength">Strength</string>
+	<string name="exercise_balance">Balance</string>
+	<string name="exercise_flexibility">Flexibility</string>
+	
+</resources>
