@@ -53,7 +53,7 @@ class HabitDbHelper extends SQLiteOpenHelper{
         return db.insert(HabitEntry.TABLE_NAME, null, values);
     }
 
-    ArrayList<String> readFromDb(){
+    private Cursor queryHabitData(){
 
         SQLiteDatabase db = getReadableDatabase();
 
@@ -64,7 +64,13 @@ class HabitDbHelper extends SQLiteOpenHelper{
                 HabitEntry.COLUMN_DURATION
         };
 
-        Cursor cursor = db.query(HabitEntry.TABLE_NAME, projection, null, null, null, null, null);
+        return db.query(HabitEntry.TABLE_NAME, projection, null, null, null, null, null);
+    }
+
+    ArrayList<String> readFromDb(){
+
+        Cursor cursor = queryHabitData();
+
         ArrayList<String> habitsData = null;
         try{
             int count = cursor.getCount();
@@ -100,6 +106,7 @@ class HabitDbHelper extends SQLiteOpenHelper{
         }
         return habitsData;
     }
+
 
     private String getExerciseType(int exercise){
 
